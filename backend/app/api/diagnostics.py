@@ -1,5 +1,12 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
+from app.db_mongo import diagnostics_collection
+
+@router.post("/")
+async def create_diagnostic(diagnostic: Diagnostic):
+    result = await diagnostics_collection.insert_one(diagnostic.dict())
+    return {"message": "Diagnostic enregistré", "id": str(result.inserted_id)}
+
 
 router = APIRouter(
     prefix="/diagnostics",
