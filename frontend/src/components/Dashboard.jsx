@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import { createTicket } from "../services/api";
+import TicketList from "./TicketList";
+...
+<TicketList />
 
 function Dashboard() {
   const [tickets, setTickets] = useState([]);
