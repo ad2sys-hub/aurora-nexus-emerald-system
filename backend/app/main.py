@@ -1,9 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.diagnostics import router as diagnostics_router
-app.include_router(diagnostics_router)
-
-# Import du router Tickets
 from app.api.tickets import router as tickets_router
 
 app = FastAPI()
@@ -26,6 +23,8 @@ app.add_middleware(
 def read_root():
     return {"message": "Aurora Nexus API is running"}
 
-# Inclusion du module Tickets
+# -----------------------------
+# Inclusion des modules
+# -----------------------------
+app.include_router(diagnostics_router)
 app.include_router(tickets_router)
-
