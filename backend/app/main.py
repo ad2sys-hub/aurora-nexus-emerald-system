@@ -5,26 +5,20 @@ from app.api.tickets import router as tickets_router
 
 app = FastAPI()
 
-# -----------------------------
-# Configuration CORS
-# -----------------------------
+# CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # À restreindre en production
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# -----------------------------
-# Routes principales
-# -----------------------------
+# Route racine
 @app.get("/")
 def read_root():
     return {"message": "Aurora Nexus API is running"}
 
-# -----------------------------
-# Inclusion des modules
-# -----------------------------
+# Inclusion des routers
 app.include_router(diagnostics_router)
 app.include_router(tickets_router)
