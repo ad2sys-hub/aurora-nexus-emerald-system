@@ -19,17 +19,3 @@ async def create_diagnostic(diagnostic: Diagnostic):
         "message": "Diagnostic enregistré",
         "id": str(result.inserted_id)
     }
-
-router = APIRouter(
-    prefix="/diagnostics",
-    tags=["Diagnostics"]
-)
-
-class Diagnostic(BaseModel):
-    device: str
-    issue: str
-    urgency: str
-
-@router.post("/")
-def create_diagnostic(diagnostic: Diagnostic):
-    return {"message": "Diagnostic reçu", "data": diagnostic}
