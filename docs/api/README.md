@@ -7,7 +7,7 @@ http://localhost:8000
 ---
 
 ## 🟦 1. GET `/`
-Retourne l’état de l’API.
+Returns the API status.
 
 ### Response
 ```json
@@ -15,33 +15,51 @@ Retourne l’état de l’API.
   "message": "Aurora Nexus API is running"
 }
 
-##🟩 2. Tickets API
+## 🟩 2. Tickets API
 ➤ GET /tickets/
-Liste tous les tickets.
+Returns all registered tickets.
 
 ➤ POST /tickets/
-Créer un ticket.
+Create a new ticket.
 
 ### Body
 ```json
 {
-  "title": "Diagnostic PC",
-  "description": "Écran noir",
-  "status": "Nouveau"
+  "title": "Laptop diagnostic",
+  "description": "Black screen",
+  "status": "New"
+}
+### Response
+```json
+{
+  "message": "Ticket successfully created",
+  "ticket": {
+    "title": "Laptop diagnostic",
+    "description": "Black screen",
+    "status": "New"
+  }
 }
 
-###🟧 3. Diagnostics API
+### 🟧 3. Diagnostics API
 ➤ POST /diagnostics/
-Créer un diagnostic technique.
+Create a technical diagnostic.
 
 ### Body
 ```json
 {
-  "device": "PC portable",
-  "issue": "Ne démarre plus",
-  "urgency": "Haute"
+  "device": "Laptop",
+  "issue": "Does not boot",
+  "urgency": "High"
+}
+
+### Response
+```json
+{
+  "message": "Diagnostic saved",
+  "id": "65b1e3f8c9a..."
 }
 
 #### 🟪 4. Health Check
-GET /docs
-GET /redoc
+/docs — Swagger UI
+
+/redoc — ReDoc UI
