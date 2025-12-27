@@ -3,6 +3,22 @@ import { createTicket } from "../services/api";
 import TicketList from "./TicketList";
 ...
 <TicketList />
+import DiagnosticForm from "./DiagnosticForm";
+
+function Dashboard() {
+  return (
+    <div>
+      <h2>Tableau de bord</h2>
+
+      <DiagnosticForm />
+
+      {/* Autres composants */}
+    </div>
+  );
+}
+
+export default Dashboard;
+
 
 function Dashboard() {
   const [tickets, setTickets] = useState([]);
